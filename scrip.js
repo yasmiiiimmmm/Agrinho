@@ -1,53 +1,53 @@
-// 1. FUNCIONALIDADE DO BOTÃO DE ENTRAR
+// 1. EVENTO PARA ENTRAR NO SITE
 document.getElementById('enter-btn').addEventListener('click', function() {
     document.getElementById('welcome-screen').classList.add('hide');
     document.getElementById('main-content').classList.remove('hide');
 });
 
-// 2. ALTERNAR ABAS DE CONTEÚDO (MENU)
+// 2. CONTROLE DE NAVEGAÇÃO POR ABAS
 function openTab(evt, tabId) {
-    // Esconde todos os conteúdos
+    // Esconde todos os blocos de texto
     const tabContents = document.getElementsByClassName("tab-content");
     for (let i = 0; i < tabContents.length; i++) {
         tabContents[i].classList.remove("active");
     }
 
-    // Tira a classe 'active' de todos os botões
+    // Remove a marcação ativa de todos os botões do menu
     const tabBtns = document.getElementsByClassName("tab-btn");
     for (let i = 0; i < tabBtns.length; i++) {
         tabBtns[i].classList.remove("active");
     }
 
-    // Mostra a aba atual e adiciona classe ativa ao botão correspondente
+    // Ativa a aba atual e o botão clicado
     document.getElementById(tabId).classList.add("active");
     evt.currentTarget.classList.add("active");
 
-    // Fecha o menu de celular automaticamente ao clicar em uma aba
+    // Fecha o menu de celular automaticamente ao selecionar uma aba
     document.getElementById('nav-menu').classList.remove('show');
 }
 
-// 3. MENU RESPONSIVO (HAMBÚRGUER)
+// 3. MENU HAMBÚRGUER (MOBILE)
 document.getElementById('menu-toggle').addEventListener('click', function() {
     const navMenu = document.getElementById('nav-menu');
     navMenu.classList.toggle('show');
 });
 
-// 4. SISTEMA DE ZOOM (AUMENTAR E DIMINUIR TEXTO / IMAGENS)
+// 4. FUNCIONALIDADE DE ZOOM MECÂNICO (TEXTO E IMAGENS)
 let currentZoom = 1.0;
 const zoomStep = 0.1;
-const maxZoom = 1.5;
+const maxZoom = 1.4;
 const minZoom = 0.8;
 
-const zoomableArea = document.querySelector('.zoomable-content');
+const zoomableArea = document.getElementById('zoomable-area');
 
-document.getElementById('zoom-in').addEventListener('click', () => {
+document.getElementById('zoom-in').addEventListener('click', function() {
     if (currentZoom < maxZoom) {
         currentZoom += zoomStep;
         applyZoom();
     }
 });
 
-document.getElementById('zoom-out').addEventListener('click', () => {
+document.getElementById('zoom-out').addEventListener('click', function() {
     if (currentZoom > minZoom) {
         currentZoom -= zoomStep;
         applyZoom();
@@ -55,12 +55,6 @@ document.getElementById('zoom-out').addEventListener('click', () => {
 });
 
 function applyZoom() {
-    // Aplica o zoom alterando o tamanho da fonte base e elementos do container de conteúdo
+    // Modifica dinamicamente o tamanho da fonte da área principal
     zoomableArea.style.fontSize = `${currentZoom}rem`;
-    
-    // Ajusta proporcionalmente as caixas de imagens e gráficos junto com o zoom
-    const images = document.querySelectorAll('.placeholder-img, .placeholder-graph');
-    images.forEach(img => {
-        img.style.transform = `scale(${1 + (currentZoom - 1) * 0.3})`;
-    });
 }
