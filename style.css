@@ -1,0 +1,225 @@
+/* VARIÁVEIS DE CORES */
+:root {
+    --bege-claro: #F7F5F0;
+    --verde-musgo: #3B583F;
+    --verde-escuro: #263A29;
+    --texto-escuro: #2D2D2D;
+    --branco: #FFFFFF;
+}
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background-color: var(--bege-claro);
+    color: var(--texto-escuro);
+    overflow-x: hidden;
+}
+
+/* TELA DE INÍCIO / BOAS-VINDAS */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--verde-musgo);
+    color: var(--bege-claro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
+}
+
+.welcome-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.welcome-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.btn-primary {
+    background-color: var(--bege-claro);
+    color: var(--verde-musgo);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: var(--branco);
+    transform: scale(1.05);
+}
+
+/* CLASSE PARA ESCONDER ELEMENTOS */
+.hide {
+    display: none !important;
+}
+
+/* CONTEÚDO PRINCIPAL E CABEÇALHO */
+header {
+    background-color: var(--verde-musgo);
+    color: var(--bege-claro);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* CONTROLES DE ACCESSIBILIDADE (ZOOM) */
+.accessibility-controls button {
+    background-color: var(--verde-escuro);
+    color: var(--bege-claro);
+    border: 1px solid var(--bege-claro);
+    padding: 8px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.accessibility-controls button:hover {
+    background-color: var(--bege-claro);
+    color: var(--verde-musgo);
+}
+
+/* MENU DE NAVEGAÇÃO */
+.nav-menu {
+    display: flex;
+    gap: 10px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: var(--bege-claro);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-bottom: 2px solid transparent;
+}
+
+.tab-btn:hover, .tab-btn.active {
+    border-bottom: 2px solid var(--bege-claro);
+    font-weight: bold;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--bege-claro);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ÁREA DE CONTEÚDO */
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+h2 {
+    color: var(--verde-musgo);
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--verde-musgo);
+    padding-bottom: 10px;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.text-block p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* IMAGENS E GRÁFICOS (PLACEHOLDERS) */
+.placeholder-img, .placeholder-graph {
+    background-color: var(--verde-musgo);
+    color: var(--bege-claro);
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.placeholder-graph {
+    background-color: var(--verde-escuro);
+    border: 2px dashed var(--bege-claro);
+}
+
+/* RESPONSIVIDADE (TELAS CELULAR) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--verde-musgo);
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .placeholder-img, .placeholder-graph {
+        height: 250px;
+    }
+}
