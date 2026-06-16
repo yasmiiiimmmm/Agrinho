@@ -1,4 +1,4 @@
-/* VARIÁVEIS DE CORES */
+/* PALETA DE CORES */
 :root {
     --bege-claro: #F7F5F0;
     --verde-musgo: #3B583F;
@@ -7,13 +7,13 @@
     --branco: #FFFFFF;
 }
 
-/* CONFIGURAÇÕES GERAIS */
+/* RESET E ESTILOS PADRÃO */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
 body {
@@ -22,7 +22,7 @@ body {
     overflow-x: hidden;
 }
 
-/* TELA DE INÍCIO / BOAS-VINDAS */
+/* TELA DE BOAS-VINDAS */
 .welcome-screen {
     position: fixed;
     top: 0;
@@ -59,6 +59,7 @@ body {
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .btn-primary:hover {
@@ -66,12 +67,12 @@ body {
     transform: scale(1.05);
 }
 
-/* CLASSE PARA ESCONDER ELEMENTOS */
+/* CLASSES UTILITÁRIAS */
 .hide {
     display: none !important;
 }
 
-/* CONTEÚDO PRINCIPAL E CABEÇALHO */
+/* HEADER E NAVEGAÇÃO */
 header {
     background-color: var(--verde-musgo);
     color: var(--bege-claro);
@@ -89,7 +90,7 @@ header {
     font-weight: bold;
 }
 
-/* CONTROLES DE ACCESSIBILIDADE (ZOOM) */
+/* ACESSIBILIDADE (ZOOM) */
 .accessibility-controls button {
     background-color: var(--verde-escuro);
     color: var(--bege-claro);
@@ -106,7 +107,7 @@ header {
     color: var(--verde-musgo);
 }
 
-/* MENU DE NAVEGAÇÃO */
+/* MENU EM ABAS */
 .nav-menu {
     display: flex;
     gap: 10px;
@@ -136,7 +137,7 @@ header {
     cursor: pointer;
 }
 
-/* ÁREA DE CONTEÚDO */
+/* SEÇÃO PRINCIPAL DE CONTEÚDO */
 main {
     padding: 40px 20px;
     max-width: 1200px;
@@ -173,7 +174,7 @@ h2 {
     text-align: justify;
 }
 
-/* IMAGENS E GRÁFICOS (PLACEHOLDERS) */
+/* IMAGENS E GRÁFICOS */
 .placeholder-img, .placeholder-graph {
     background-color: var(--verde-musgo);
     color: var(--bege-claro);
@@ -193,7 +194,7 @@ h2 {
     border: 2px dashed var(--bege-claro);
 }
 
-/* RESPONSIVIDADE (TELAS CELULAR) */
+/* RESPONSIVIDADE (CELULAR) */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
