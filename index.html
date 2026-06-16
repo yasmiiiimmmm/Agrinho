@@ -1,98 +1,303 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urbanização e Desigualdade</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urbanização e Desigualdade</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial;
+    background:#f5f1e6;
+    color:#2f3b2f;
+}
+
+#app{
+    max-width:500px;
+    margin:auto;
+}
+
+/* topo */
+header{
+    background:#556b2f;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+/* menu inferior */
+nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    display:flex;
+    background:#556b2f;
+}
+
+nav button{
+    flex:1;
+    padding:12px;
+    border:none;
+    background:none;
+    color:white;
+    font-size:12px;
+}
+
+/* páginas */
+.page{
+    display:none;
+    padding:15px;
+    padding-bottom:80px;
+    line-height:1.5;
+}
+
+.active{
+    display:block;
+}
+
+/* quiz */
+.quiz button{
+    display:block;
+    width:100%;
+    margin:5px 0;
+    padding:10px;
+    border:none;
+    background:#6b8e23;
+    color:white;
+    border-radius:8px;
+}
+
+/* gráfico */
+.bar{
+    height:25px;
+    margin:10px 0;
+    background:#556b2f;
+    color:white;
+    text-align:right;
+    padding-right:5px;
+    border-radius:5px;
+}
+
+/* mapa */
+.city{
+    padding:10px;
+    margin:5px;
+    background:#6b8e23;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* comentários */
+#comments{
+    max-height:200px;
+    overflow:auto;
+    border:1px solid #ccc;
+    padding:10px;
+    background:white;
+}
+
+.comment{
+    background:#f0ead6;
+    margin:5px 0;
+    padding:5px;
+    border-radius:5px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+}
+</style>
 </head>
+
 <body>
 
-    <div id="welcome-screen" class="welcome-screen">
-        <div class="welcome-content">
-            <h1>Urbanização & Desigualdade</h1>
-            <p>Uma análise profunda sobre o crescimento das cidades e os contrastes sociais.</p>
-            <button id="enter-btn" class="btn-primary">Entrar no Site</button>
-        </div>
-    </div>
+<div id="app">
 
-    <div id="main-content" class="main-content hide">
-        
-        <header>
-            <div class="logo">CidadeJusta</div>
-            
-            <div class="accessibility-controls">
-                <button id="zoom-out" title="Diminuir o tamanho do texto">- A</button>
-                <button id="zoom-in" title="Aumentar o tamanho do texto">+ A</button>
-            </div>
+<header>Urbanização e Desigualdade Social</header>
 
-            <button id="menu-toggle" class="menu-toggle">☰ Menu</button>
-            
-            <nav id="nav-menu" class="nav-menu">
-                <button class="tab-btn active" onclick="openTab(event, 'introducao')">Introdução</button>
-                <button class="tab-btn" onclick="openTab(event, 'causas')">Causas</button>
-                <button class="tab-btn" onclick="openTab(event, 'consequencias')">Consequências</button>
-                <button class="tab-btn" onclick="openTab(event, 'dados')">Dados e Gráficos</button>
-            </nav>
-        </header>
+<!-- HOME -->
+<div class="page active" id="home">
 
-        <main id="zoomable-area">
-            
-            <section id="introducao" class="tab-content active">
-                <h2>O Processo de Urbanização</h2>
-                <div class="grid-layout">
-                    <div class="text-block">
-                        <p>A urbanização é um dos fenômenos mais marcantes da história recente da humanidade. Ela se caracteriza pelo crescimento das cidades em ritmo mais acelerado do que o do meio rural, impulsionada fortemente pelo êxodo rural e pela industrialização ao longo dos séculos XIX e XX.</p>
-                        <p>No entanto, quando esse crescimento ocorre de forma rápida e sem o devido planejamento estatal, as cidades tornam-se palcos de profundas disparidades socioespaciais. A infraestrutura urbana, que deveria atender a todos, acaba se concentrando nas regiões centrais e mais valorizadas, deixando a periferia à margem dos direitos básicos mais essenciais.</p>
-                    </div>
-                    <div class="image-block">
-                        <div class="placeholder-img">[Imagem: O Contraste Urbano Visual]</div>
-                    </div>
-                </div>
-            </section>
+<h2>🏙 O que é Urbanização?</h2>
 
-            <section id="causas" class="tab-content">
-                <h2>Raízes da Desigualdade Urbana</h2>
-                <div class="grid-layout">
-                    <div class="text-block">
-                        <p>As causas da desigualdade nas grandes metrópoles são históricas e estruturais. O primeiro fator crucial é a especulação imobiliária, que encarece o solo urbano nas áreas centrais dotadas de transporte, saneamento e empregos, empurrando as populações de baixa renda para as regiões periféricas ou áreas de risco.</p>
-                        <p>Outro ponto determinante é a falta de investimentos contínuos em políticas de habitação popular. Sem opções de moradia digna e acessível, surgem ocupações informais e o processo de favelização, evidenciando uma divisão clara entre a "cidade formal" (legalizada e assistida) e a "cidade informal" (esquecida pelo poder público).</p>
-                    </div>
-                    <div class="image-block">
-                        <div class="placeholder-img">[Imagem: Expansão Periférica Desordenada]</div>
-                    </div>
-                </div>
-            </section>
+<p>
+A urbanização é o processo de crescimento das cidades e aumento da população urbana em relação à população rural.
+Esse fenômeno acontece principalmente por causa da migração de pessoas do campo para as cidades em busca de emprego,
+educação, saúde e melhores condições de vida.
+</p>
 
-            <section id="consequencias" class="tab-content">
-                <h2>Impactos Sociais e Segregação</h2>
-                <div class="grid-layout">
-                    <div class="text-block">
-                        <p>A segregação socioespacial gera consequências graves no cotidiano dos cidadãos. A falta de saneamento básico em áreas periféricas resulta em problemas crônicos de saúde pública. Paralelamente, a escassez de transporte de qualidade força trabalhadores a gastarem horas em deslocamentos diários, reduzindo sua qualidade de vida.</p>
-                        <p>Além disso, a violência urbana costuma se manifestar de maneira mais severa em locais onde o Estado se faz ausente em termos de educação, cultura e lazer, gerando um ciclo vicioso de exclusão econômica e social que afeta gerações inteiras de famílias.</p>
-                    </div>
-                    <div class="image-block">
-                        <div class="placeholder-img">[Imagem: Desafios do Transporte Coletivo]</div>
-                    </div>
-                </div>
-            </section>
+<p>
+No Brasil, a urbanização ocorreu de forma muito rápida a partir do século XX, principalmente com a industrialização.
+Cidades como São Paulo e Rio de Janeiro cresceram rapidamente, atraindo milhões de pessoas.
+</p>
 
-            <section id="dados" class="tab-content">
-                <h2>Dados e Indicadores</h2>
-                <div class="grid-layout">
-                    <div class="text-block">
-                        <p>Estatísticas globais apontam que mais de 1 bilhão de pessoas no mundo vivem hoje em assentamentos informais ou favelas. No Brasil, dados do IBGE revelam que a disparidade de renda se reflete diretamente no acesso a serviços básicos: enquanto os bairros mais ricos contam com quase 100% de cobertura de água e esgoto, esse número despenca drasticamente nas periferias.</p>
-                        <p>Analisar esses indicadores através de gráficos nos ajuda a visualizar a urgência de reformas estruturais, que incluam a regularização fundiária e a distribuição justa de recursos públicos por todo o território municipal.</p>
-                    </div>
-                    <div class="image-block">
-                        <div class="placeholder-graph">[Gráfico: Acesso a Infraestrutura por Renda]</div>
-                    </div>
-                </div>
-            </section>
+<h2>⚖ O que é Desigualdade Social?</h2>
 
-        </main>
-    </div>
+<p>
+A desigualdade social é a diferença no acesso a recursos básicos como renda, moradia, educação e saúde.
+Nas cidades, isso aparece de forma muito visível, com bairros ricos altamente estruturados e periferias com pouca infraestrutura.
+</p>
 
-    <script src="script.js"></script>
+<p>
+Esse problema é histórico e está ligado à forma como a economia e o espaço urbano foram organizados.
+Mesmo dentro de uma mesma cidade, as condições de vida podem ser completamente diferentes.
+</p>
+
+<p>
+A desigualdade urbana pode causar problemas como violência, exclusão social, falta de oportunidades e dificuldade de mobilidade social.
+</p>
+
+</div>
+
+<!-- QUIZ -->
+<div class="page" id="quiz">
+
+<h2>🧠 Quiz Educativo</h2>
+
+<p>Teste seus conhecimentos sobre urbanização e desigualdade:</p>
+
+<div class="quiz">
+<p><b>1. Urbanização significa:</b></p>
+<button onclick="resposta(this,false)">Redução das cidades</button>
+<button onclick="resposta(this,true)">Crescimento das cidades</button>
+<button onclick="resposta(this,false)">Fim da população urbana</button>
+
+<p><b>2. Um problema comum da urbanização é:</b></p>
+<button onclick="resposta(this,false)">Mais tecnologia</button>
+<button onclick="resposta(this,true)">Favelização</button>
+<button onclick="resposta(this,false)">Mais empregos sempre</button>
+</div>
+
+<p id="score">Pontuação: 0</p>
+
+</div>
+
+<!-- GRÁFICO -->
+<div class="page" id="grafico">
+
+<h2>📊 Desigualdade Social (Representação)</h2>
+
+<p>
+Este gráfico mostra de forma simplificada como a qualidade de vida pode variar dentro de uma mesma cidade.
+Ele representa o acesso a infraestrutura, renda e serviços.
+</p>
+
+<p><b>Bairro rico</b></p>
+<div class="bar" style="width:95%">95%</div>
+
+<p>
+Regiões com maior renda possuem melhor acesso a hospitais, escolas privadas, segurança e transporte.
+</p>
+
+<p><b>Bairro médio</b></p>
+<div class="bar" style="width:65%">65%</div>
+
+<p>
+Áreas intermediárias possuem serviços básicos, mas ainda enfrentam problemas como transporte e saúde.
+</p>
+
+<p><b>Periferia</b></p>
+<div class="bar" style="width:30%">30%</div>
+
+<p>
+Nas periferias, a falta de infraestrutura, saneamento básico e oportunidades de emprego é mais comum.
+</p>
+
+</div>
+
+<!-- MAPA -->
+<div class="page" id="mapa">
+
+<h2>🗺 Urbanização nas Cidades</h2>
+
+<p>
+As cidades brasileiras apresentam diferentes níveis de urbanização e desigualdade.
+Clique em uma cidade para ver informações:
+</p>
+
+<div class="city" onclick="alert('São Paulo: maior cidade do Brasil, alta urbanização e grande desigualdade social.')">
+São Paulo
+</div>
+
+<div class="city" onclick="alert('Rio de Janeiro: urbanização intensa e contraste entre zonas ricas e favelas.')">
+Rio de Janeiro
+</div>
+
+<div class="city" onclick="alert('Curitiba: cidade planejada, mas ainda com desigualdades urbanas.')">
+Curitiba
+</div>
+
+<p>
+O crescimento urbano nem sempre acontece de forma planejada, o que gera ocupações irregulares e problemas sociais.
+</p>
+
+</div>
+
+<!-- COMENTÁRIOS -->
+<div class="page" id="comentarios">
+
+<h2>💬 Comentários</h2>
+
+<p>
+Aqui você pode simular uma rede social onde pessoas comentam sobre urbanização e desigualdade.
+Isso representa como o tema é discutido na sociedade.
+</p>
+
+<div id="comments"></div>
+
+<input id="input" placeholder="Escreva um comentário">
+<button onclick="comentar()">Enviar</button>
+
+</div>
+
+</div>
+
+<!-- MENU -->
+<nav>
+<button onclick="openPage('home')">🏠</button>
+<button onclick="openPage('quiz')">🧠</button>
+<button onclick="openPage('grafico')">📊</button>
+<button onclick="openPage('mapa')">🗺</button>
+<button onclick="openPage('comentarios')">💬</button>
+</nav>
+
+<script>
+
+let score=0;
+
+function openPage(id){
+    document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+function resposta(btn, correta){
+    if(correta){
+        score++;
+        btn.style.background="green";
+    }else{
+        btn.style.background="red";
+    }
+    document.getElementById("score").innerText="Pontuação: "+score;
+}
+
+function comentar(){
+    let text=document.getElementById("input").value;
+    if(text==="") return;
+
+    let div=document.createElement("div");
+    div.className="comment";
+    div.innerText="👤 "+text;
+
+    document.getElementById("comments").appendChild(div);
+    document.getElementById("input").value="";
+}
+
+</script>
+
 </body>
 </html>
