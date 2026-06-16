@@ -22,8 +22,6 @@ function openTab(evt, tabId) {
     document.getElementById(tabId).classList.add("active");
     evt.currentTarget.classList.add("active");
 
-    // Fecha o menu de celular automaticamente ao selecionar uma aba
-    document.getElementById('nav-menu').classList.remove('show');
 }
 
 // 3. MENU HAMBÚRGUER (MOBILE)
