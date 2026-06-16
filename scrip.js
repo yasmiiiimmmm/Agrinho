@@ -6,7 +6,7 @@ document.getElementById('enter-btn').addEventListener('click', function() {
 
 // 2. ALTERNAR ABAS DE CONTEÚDO (MENU)
 function openTab(evt, tabId) {
-    // Esconde todos os conteúdos
+    //todos os conteúdos
     const tabContents = document.getElementsByClassName("tab-content");
     for (let i = 0; i < tabConte// 1. FUNCIONALIDADE DO BOTÃO DE ENTRAR
 document.getElementById('enter-btn').addEventListener('click', function() {
@@ -16,7 +16,7 @@ document.getElementById('enter-btn').addEventListener('click', function() {
 
 // 2. ALTERNAR ABAS DE CONTEÚDO (MENU)
 function openTab(evt, tabId) {
-    // Esconde todos os conteúdos
+    // aparecer todos os conteúdos
     const tabContents = document.getElementsByClassName("tab-content");
     for (let i = 0; i < tabContents.length; i++) {
         tabContents[i].classList.remove("active");
