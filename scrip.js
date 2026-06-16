@@ -1,58 +1,61 @@
-// 1. EVENTO PARA ENTRAR NO SITE
-document.getElementById('enter-btn').addEventListener('click', function() {
-    document.getElementById('welcome-screen').classList.add('hide');
-    document.getElementById('main-content').classList.remove('hide');
-});
+/* =========================
+   TROCA DE PÁGINAS (ABAS)
+========================= */
+function openPage(id){
 
-// 2. CONTROLE DE NAVEGAÇÃO POR ABAS
-function openTab(evt, tabId) {
-    // Esconde todos os blocos de texto
-    const tabContents = document.getElementsByClassName("tab-content");
-    for (let i = 0; i < tabContents.length; i++) {
-        tabContents[i].classList.remove("active");
-    }
+    const pages = document.querySelectorAll(".page");
 
-    // Remove a marcação ativa de todos os botões do menu
-    const tabBtns = document.getElementsByClassName("tab-btn");
-    for (let i = 0; i < tabBtns.length; i++) {
-        tabBtns[i].classList.remove("active");
-    }
+    pages.forEach(page => {
+        page.classList.remove("active");
+    });
 
-    // Ativa a aba atual e o botão clicado
-    document.getElementById(tabId).classList.add("active");
-    evt.currentTarget.classList.add("active");
-
+    document.getElementById(id).classList.add("active");
 }
 
-// 3. MENU HAMBÚRGUER (MOBILE)
-document.getElementById('menu-toggle').addEventListener('click', function() {
-    const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('show');
-});
 
-// 4. FUNCIONALIDADE DE ZOOM MECÂNICO (TEXTO E IMAGENS)
-let currentZoom = 1.0;
-const zoomStep = 0.1;
-const maxZoom = 1.4;
-const minZoom = 0.8;
+/* =========================
+   💬 SISTEMA DE COMENTÁRIOS
+========================= */
+function comentar(){
 
-const zoomableArea = document.getElementById('zoomable-area');
+    let input = document.getElementById("input");
+    let text = input.value.trim();
 
-document.getElementById('zoom-in').addEventListener('click', function() {
-    if (currentZoom < maxZoom) {
-        currentZoom += zoomStep;
-        applyZoom();
+    if(text === "") return;
+
+    let div = document.createElement("div");
+    div.className = "comment";
+
+    // nomes aleatórios (simulação rede social)
+    let nomes = ["João", "Maria", "Ana", "Pedro", "Lucas", "Carla", "Rafaela", "Bruno"];
+    let nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
+
+    div.innerText = "👤 " + nomeAleatorio + ": " + text;
+
+    document.getElementById("comments").appendChild(div);
+
+    input.value = "";
+}
+
+
+/* =========================
+   🗺 MAPA (ALERTAS DAS CIDADES)
+========================= */
+function cidadeInfo(cidade){
+
+    let info = "";
+
+    if(cidade === "sp"){
+        info = "São Paulo: maior cidade do Brasil, forte urbanização e grande desigualdade social.";
     }
-});
 
-document.getElementById('zoom-out').addEventListener('click', function() {
-    if (currentZoom > minZoom) {
-        currentZoom -= zoomStep;
-        applyZoom();
+    if(cidade === "rj"){
+        info = "Rio de Janeiro: urbanização intensa com contraste entre áreas ricas e favelas.";
     }
-});
 
-function applyZoom() {
-    // Modifica dinamicamente o tamanho da fonte da área principal
-    zoomableArea.style.fontSize = `${currentZoom}rem`;
+    if(cidade === "ctb"){
+        info = "Curitiba: cidade planejada, mas ainda com desigualdades urbanas.";
+    }
+
+    alert(info);
 }
